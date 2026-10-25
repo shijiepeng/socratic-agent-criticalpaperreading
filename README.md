@@ -1,0 +1,2 @@
+# socratic-agent-criticalpaperreading
+苏格拉底式智能体辅助阅读对科研新手文献批判性评价表现的影响
