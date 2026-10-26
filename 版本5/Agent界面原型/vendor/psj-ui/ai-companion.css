@@ -1,0 +1,47 @@
+/* AI companion: scoped styles, existing glass tokens, no global button overrides. */
+.psj-ai{position:sticky;top:88px;align-self:flex-start;flex:0 0 auto;width:0;height:calc(100dvh - 112px);min-width:0;z-index:30;transition:width .26s ease;--ai-fill:color-mix(in srgb,var(--surface-solid) 94%,var(--brand) 6%)}
+.psj-ai[data-open]{width:var(--psj-ai-width,400px)}
+.psj-ai [hidden]{display:none!important}
+.psj-ai *, .psj-ai *::before,.psj-ai *::after{box-sizing:border-box}
+.psj-ai button,.psj-ai textarea{font:inherit;color:var(--ink);-webkit-tap-highlight-color:transparent}
+.psj-ai button{cursor:pointer;position:relative;isolation:isolate;border:1px solid var(--button-edge);background:var(--surface-clear);border-radius:var(--radius-pill,999px);transition:background .16s,border-color .16s;overflow:hidden}
+.psj-ai button::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--ai-glow-x,50%) var(--ai-glow-y,50%),rgba(47,125,246,.17),transparent 75%);opacity:0;pointer-events:none;transition:opacity .2s}
+@media(hover:hover){.psj-ai button:hover:not(:disabled)::after{opacity:1}}
+.psj-ai button:focus-visible,.psj-ai textarea:focus-visible,.psj-ai-resize:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.psj-ai button:disabled{opacity:.42;cursor:default}
+.psj-ai svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.psj-ai .psj-ai-launch{position:fixed;right:24px;bottom:24px;display:flex;align-items:center;gap:10px;padding:14px 20px;color:var(--brand);font-weight:600;background:var(--ai-fill);backdrop-filter:blur(var(--material-blur,20px));box-shadow:var(--material-shadow);overflow:visible}
+.psj-ai-launch i{width:7px;height:7px;background:var(--brand);border-radius:50%}
+.psj-ai-panel{position:absolute;inset:0 0 0 12px;display:flex;flex-direction:column;min-width:0;background:var(--ai-fill);border:1px solid var(--button-edge);border-radius:var(--radius-ui,20px);box-shadow:var(--material-shadow);backdrop-filter:blur(var(--material-blur,20px)) saturate(130%);-webkit-backdrop-filter:blur(var(--material-blur,20px)) saturate(130%)}
+.psj-ai-resize{position:absolute;inset:12px auto 12px -13px;width:16px;cursor:col-resize;touch-action:none;z-index:2;border-radius:999px}
+.psj-ai-resize::after{content:'';position:absolute;top:calc(50% - 24px);left:6px;width:3px;height:48px;border-radius:999px;background:var(--button-edge);transition:background .15s}
+.psj-ai-resize:hover::after,.psj-ai-resize:focus-visible::after,.psj-ai[data-resizing] .psj-ai-resize::after{background:var(--brand)}
+.psj-ai[data-resizing]{transition:none;user-select:none}
+.psj-ai-header{display:flex;align-items:center;gap:10px;padding:20px 18px 16px;border-bottom:1px solid var(--button-edge)}
+.psj-ai-header>div{flex:1;min-width:0}.psj-ai-header strong{display:block;font-size:16px;font-weight:600}.psj-ai-header small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.psj-ai .psj-ai-icon{display:grid;place-items:center;flex:none;width:32px;height:32px;padding:0;border-color:transparent;background:transparent}
+.psj-ai-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:22px 18px;scrollbar-width:thin}
+.psj-ai-welcome{padding:22px 2px}
+.psj-ai-welcome h3{font-size:20px;line-height:1.6;letter-spacing:-.4px;font-weight:600;margin:0 0 10px;color:var(--ink)}.psj-ai-welcome p{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 22px}
+.psj-ai-suggestions{display:flex;flex-wrap:wrap;gap:8px}.psj-ai-suggestions button{padding:8px 12px;font-size:12px}
+.psj-ai-message{margin:0 0 24px;min-width:0}.psj-ai-message small{display:block;margin:0 2px 7px;font-size:11px;color:var(--muted)}.psj-ai-message p{margin:0;font-size:14px;line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink)}
+.psj-ai-user{margin-left:20px}.psj-ai-user small{text-align:right}.psj-ai-user p{padding:12px 16px;border-radius:18px;background:var(--surface-tint);border:1px solid var(--button-edge)}
+.psj-ai-message[data-pending] p:empty::before{content:'正在思考…';color:var(--muted)}
+.psj-ai-compose{margin:0 14px;padding:12px;border-radius:20px;border:1px solid var(--button-edge);background:var(--surface-clear)}
+.psj-ai-compose:focus-within{border-color:var(--brand)}
+.psj-ai textarea{display:block;width:100%;min-height:48px;max-height:160px;resize:none;border:0!important;border-radius:0;background:transparent!important;box-shadow:none!important;padding:0 2px;line-height:1.6;font-size:14px}
+.psj-ai textarea:focus-visible{outline:none}.psj-ai textarea::placeholder{color:var(--muted)}
+.psj-ai-compose>div{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}.psj-ai-compose>div>span{color:var(--muted);font-size:10px}
+.psj-ai .psj-ai-send{display:grid;place-items:center;flex:none;width:34px;height:34px;padding:0;background:var(--brand);color:white;border-color:transparent;border-radius:50%}
+.psj-ai-foot{display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:10px 20px 14px;color:var(--muted);font-size:10px;min-height:35px}
+.psj-ai-error{margin:0 16px 10px;padding:10px 12px;border-radius:12px;background:var(--surface-clear);font-size:12px;display:flex;align-items:center;gap:8px}.psj-ai-error span{flex:1}.psj-ai-error button{padding:5px 10px}
+.psj-ai-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.psj-ai[data-compact]{position:absolute;right:0;top:0;bottom:0;height:100%;width:0}.psj-ai[data-compact][data-open]{width:min(var(--psj-ai-width),100%)}
+.psj-ai[data-compact] .psj-ai-panel{inset:0}.psj-ai[data-compact] .psj-ai-compose>div>span{font-size:9px}
+/* Gallery demo stays inside its specimen; full demo uses the normal right dock. */
+.psj-ai-demo-stage{position:relative;display:flex;min-height:560px;width:100%;overflow:hidden;border-radius:20px;background:var(--surface-clear)}
+.psj-ai-demo-page{flex:1;padding:32px;min-width:0}.psj-ai-demo-page small{color:var(--brand);font-size:12px}.psj-ai-demo-page h3{font-size:24px;color:var(--ink);margin:22px 0 10px}.psj-ai-demo-page p{font-size:14px;color:var(--muted);line-height:1.8}.psj-ai-demo-page a{color:var(--brand);font-size:13px}
+.psj-ai-demo-stage .psj-ai{top:0;height:560px}.psj-ai-demo-stage .psj-ai-launch{position:absolute;white-space:nowrap;bottom:20px;right:20px}.psj-ai-demo-stage .psj-ai-panel{top:12px;bottom:12px;right:12px}
+[data-component=ai-companion]{width:100%;padding:16px!important;display:block!important}.cheat-card[data-type=ai-companion]{grid-column:1/-1}
+@media(prefers-reduced-motion:reduce){.psj-ai,.psj-ai *,.psj-ai *::after{transition:none!important;scroll-behavior:auto!important}}
+@supports not (backdrop-filter:blur(1px)){.psj-ai-panel,.psj-ai .psj-ai-launch{background:var(--surface-solid)}}
